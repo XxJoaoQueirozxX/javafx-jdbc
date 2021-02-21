@@ -1,6 +1,7 @@
 package gui;
 
 import application.Main;
+import db.DB;
 import gui.util.Alerts;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -71,6 +72,7 @@ public class MainViewController implements Initializable {
 
             T controler =loader.getController();
             initializingAction.accept(controler);
+
 
         }catch (IOException e){
             Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), Alert.AlertType.ERROR);
