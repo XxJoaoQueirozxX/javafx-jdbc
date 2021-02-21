@@ -61,7 +61,7 @@
             <TextField fx:id="inputFieldEmail" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="inputFieldBaseSalary" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <DatePicker fx:id="dpBirthDate" prefHeight="25.0" prefWidth="207.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ComboBox prefHeight="25.0" prefWidth="207.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ComboBox fx:id="comboBoxDepartment" prefHeight="25.0" prefWidth="207.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
    </children>

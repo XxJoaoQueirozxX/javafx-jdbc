@@ -107,6 +107,7 @@ public class DepartmentListController implements Initializable, DataChangeListen
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.showAndWait();
         }catch (IOException e){
+            e.printStackTrace();
             Alerts.showAlert("IOExcpetion", "Error loading view", e.getMessage(), Alert.AlertType.ERROR);
         }
     }
@@ -163,6 +164,7 @@ public class DepartmentListController implements Initializable, DataChangeListen
                 service.remove(dep);
                 updateTableView();
             }catch (DbIntegrityException e){
+
                 Alerts.showAlert("Error removing object", null, e.getMessage(), Alert.AlertType.ERROR);
             } catch (DbException e){
 
