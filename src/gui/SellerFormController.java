@@ -19,6 +19,7 @@ import model.services.DepartmentService;
 import model.services.SellerService;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.*;
 
 public class SellerFormController implements Initializable {
@@ -105,6 +106,27 @@ public class SellerFormController implements Initializable {
         }
         seller.setName(inputFieldName.getText());
 
+        if (inputFieldEmail.getText() == null || inputFieldEmail.getText().trim().equals("")){
+            exception.addError("email", "field can't be empty");
+        }
+        seller.setEmail(inputFieldEmail.getText());
+
+
+        if (dpBirthDate.getValue() == null){
+            exception.addError("birthDate", "field can't be empty");
+        }else{
+            seller.setBirthDate(dpBirthDate.getValue());
+        }
+
+        if (inputFieldBaseSalary.getText() == null || inputFieldBaseSalary.getText().trim().equals("")){
+            exception.addError("baseSalary", "field can't be empty");
+        }
+
+        seller.setBaseSalary(Utils.tryParseToDouble(inputFieldBaseSalary.getText()));
+
+        seller.setDepartment(comboBoxDepartment.getValue());
+
+
         if (exception.getErrors().size() > 0){
             throw exception;
         }
@@ -172,9 +194,11 @@ public class SellerFormController implements Initializable {
 
     public void setErrorsMessages(Map<String, String> errors){
         Set<String> fields = errors.keySet();
-        if (fields.contains("name")){
-            nameErrorLabel.setText(errors.get("name"));
-        }
+
+        nameErrorLabel.setText((fields.contains("name"))? errors.get("name"):"");
+        emailErrorLabel.setText((fields.contains("email"))? errors.get("email"):"");
+        salaryErrorLabel.setText((fields.contains("baseSalary"))? errors.get("baseSalary"):"");
+        birthDateErrorLabel.setText((fields.contains("birthDate"))? errors.get("birthDate"):"");
     }
 
     private void initializeComboBoxDepartment() {
