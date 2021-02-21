@@ -99,4 +99,8 @@ public class Seller implements Serializable {
                 ", department=" + department +
                 '}';
     }
+
+    public Object[] toArray(){
+        return new Object[]{this.id, this.name, this.email, this.baseSalary, this.birthDate, this.department.getName()};
+    }
 }

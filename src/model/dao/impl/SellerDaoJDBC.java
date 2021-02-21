@@ -3,8 +3,8 @@ package model.dao.impl;
 import db.DB;
 import db.DbException;
 import model.dao.DAO;
-import model.entities.Department;
 import model.entities.Seller;
+import model.entities.Department;
 
 import java.sql.*;
 import java.util.ArrayList;

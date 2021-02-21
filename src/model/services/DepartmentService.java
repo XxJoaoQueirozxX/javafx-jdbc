@@ -1,7 +1,6 @@
 package model.services;
 
 import db.DB;
-import model.dao.DAO;
 import model.dao.DaoFactory;
 import model.dao.impl.DepartmentDaoJDBC;
 import model.entities.Department;
